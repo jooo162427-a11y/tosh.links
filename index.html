@@ -4,32 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TOSH — تواصل معنا</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --brown: #9e5f22; --brown-dark: #7a4718; --brown-light: #c4874a;
-    --cream: #fdf8f3; --warm-white: #fff9f4; --text-dark: #2c1a0e; --text-muted: #b08060;
-  }
-  html, body { height: 100%; background: var(--cream); font-family: 'Tajawal', sans-serif; color: var(--text-dark); overflow-x: hidden; }
-  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(158,95,34,0.12) 0%, transparent 60%); pointer-events: none; z-index: 0; }
+  :root { --brown: #9e5f22; --brown-dark: #7a4718; --cream: #fdf8f3; --warm-white: #fff9f4; --text-dark: #2c1a0e; --text-muted: #b08060; }
+  html, body { height: 100%; background: var(--cream); font-family: 'Tajawal', sans-serif; color: var(--text-dark); }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(158,95,34,0.10) 0%, transparent 60%); pointer-events: none; z-index: 0; }
   .page { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 24px; }
-  .logo-wrap { margin-bottom: 56px; text-align: center; animation: fadeDown 0.9s cubic-bezier(.16,1,.3,1) both; }
-  .logo-bg { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; background: var(--brown); border-radius: 20px; padding: 40px 56px; box-shadow: 0 20px 60px rgba(158,95,34,0.25); }
-  .logo-symbol { margin-bottom: 10px; }
-  .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 400; letter-spacing: 10px; color: #fff; }
-  .tagline { margin-top: 20px; font-size: 12px; letter-spacing: 5px; color: var(--text-muted); font-weight: 300; animation: fadeUp 0.9s 0.2s cubic-bezier(.16,1,.3,1) both; }
+  .logo-wrap { margin-bottom: 40px; text-align: center; animation: fadeDown 0.9s cubic-bezier(.16,1,.3,1) both; }
+  .logo-img { width: 220px; border-radius: 16px; box-shadow: 0 20px 60px rgba(158,95,34,0.20); }
+  .tagline { margin-top: 16px; font-size: 12px; letter-spacing: 5px; color: var(--text-muted); font-weight: 300; }
   .divider { display: flex; align-items: center; gap: 16px; margin-bottom: 44px; animation: fadeUp 0.9s 0.3s cubic-bezier(.16,1,.3,1) both; }
-  .divider-line { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, var(--brown-light)); }
-  .divider-line:last-child { background: linear-gradient(90deg, var(--brown-light), transparent); }
-  .divider-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--brown-light); }
+  .divider-line { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, #c4874a); }
+  .divider-line:last-child { background: linear-gradient(90deg, #c4874a, transparent); }
+  .divider-dot { width: 5px; height: 5px; border-radius: 50%; background: #c4874a; }
   .buttons { display: flex; flex-direction: column; gap: 18px; width: 100%; max-width: 320px; animation: fadeUp 0.9s 0.4s cubic-bezier(.16,1,.3,1) both; }
   .btn { display: flex; align-items: center; justify-content: center; gap: 14px; text-decoration: none; border-radius: 14px; padding: 18px 28px; font-family: 'Tajawal', sans-serif; font-size: 16px; font-weight: 500; transition: transform 0.2s ease, box-shadow 0.2s ease; }
   .btn:active { transform: scale(0.97); }
   .btn-whatsapp { background: var(--brown); color: #fff; box-shadow: 0 8px 28px rgba(158,95,34,0.30); }
   .btn-whatsapp:hover { background: var(--brown-dark); transform: translateY(-2px); }
   .btn-instagram { background: var(--warm-white); color: var(--brown-dark); border: 1.5px solid rgba(158,95,34,0.2); }
-  .btn-instagram:hover { background: #fff; border-color: rgba(158,95,34,0.4); transform: translateY(-2px); }
+  .btn-instagram:hover { background: #fff; transform: translateY(-2px); }
   .btn-icon { width: 26px; height: 26px; flex-shrink: 0; }
   .footer { margin-top: 60px; font-size: 11px; letter-spacing: 3px; color: var(--text-muted); font-weight: 300; animation: fadeUp 0.9s 0.6s cubic-bezier(.16,1,.3,1) both; }
   @keyframes fadeDown { from { opacity: 0; transform: translateY(-24px); } to { opacity: 1; transform: translateY(0); } }
@@ -39,13 +34,7 @@
 <body>
 <div class="page">
   <div class="logo-wrap">
-    <div class="logo-bg">
-      <svg class="logo-symbol" width="64" height="22" viewBox="0 0 64 22" fill="none">
-        <path d="M8 16 Q20 4 40 8 Q52 11 62 7" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <path d="M2 20 Q16 10 36 14 Q50 17 62 12" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.6"/>
-      </svg>
-      <div class="logo-text">TOSH</div>
-    </div>
+    <img class="logo-img" src="ea075ec1-3d12-4dd7-9af2-56891077b352.jpeg" alt="TOSH">
     <div class="tagline">حقائب قطنية يدوية الصنع</div>
   </div>
   <div class="divider">
